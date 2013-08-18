@@ -29,8 +29,8 @@ var postgis_handler = "GetRasterVB.ashx";
 ```
 
 ## INSTALLATION ## 
-1) You need PostGIS 2.0 or later built with raster support.
-2) Change the web.config to the credentials of your database. If you are using PHP then change the config.inc.php to 
+1. You need PostGIS 2.0 or later built with raster support.
+2. Change the web.config to the credentials of your database. If you are using PHP then change the config.inc.php to 
 credentials of your databse
 Please note that this tool since it allows
 some ad-hoc queries, if your app is easily accessible on the web, 
@@ -39,16 +39,16 @@ an account with low level permissions.  It just needs access to the function
 postgis_viewer_image.  And that function needs to be created under an account
 that has access to the tables and all the postgis and raster functions you want the user to have access to.
 
-3) run the toraster.sql function in your database to install the 
+3. run the toraster.sql function in your database to install the 
 helper stored function.  Not the owner of the function needs to have access to tables, functions etc you want the user
 to have access to.
-4) Make sure the account you specified in web.config has rights 
+4. Make sure the account you specified in web.config has rights 
 to execute the function
 To verify it works, try this function in psql or 
 PgAdmin logged in as the account you have in your web.config
 (making sure the account you specified in web.config has rights to execute the function
 SELECT postgis_viewer_image('ST_Point(10,20)', 'geometry', ARRAY[100,0,0]);
-4) Copy the files to your web server.
+5. Copy the files to your web server.
 Open up:
 http://yourserver/postgis_webviewer/postgis_viewer.htm
 
