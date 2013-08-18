@@ -85,7 +85,8 @@ Choose a color you want to output the query (the color picker is only relevant f
 Type in an sql expression that resolves to a geometry.
 
 ```sql 
-ST_Buffer(ST_Point(1,1), 10);```
+ST_Buffer(ST_Point(1,1), 10);
+```
 
 -- a more complex geometry example --
 ```sql
