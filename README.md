@@ -16,13 +16,19 @@ We have a GetRasterVB.ashx for VB.NET lovers like us
 and GetRasterCS.ashx for C# (those other people :) ) and also GetRaster.php.
 The application is defaulted to use the GetRaster.php handler, 
 but if you prefer ASP.NET just change the line in postgis_viewer.htm:
+```javascript
 var postgis_handler = "GetRaster.php";
+```
 to:
+```javascript
 var postgis_handler = "GetRasterCS.ashx";
+```
 or
+```javascript
 var postgis_handler = "GetRasterVB.ashx";
+```
 
-##INSTALLATION## 
+## INSTALLATION ## 
 1) You need PostGIS 2.0 or later built with raster support.
 2) Change the web.config to the credentials of your database. If you are using PHP then change the config.inc.php to 
 credentials of your databse
@@ -65,7 +71,7 @@ or hardcode a larger or smaller.
 4. The viewer is hardcoded to output in PNG even for rasters. 
 To use other formats, choose raw and explicitly use the ST_AsPNG, ST_ASJPEG etc.
 
-##HOW TO USE##
+## HOW TO USE ##
 The viewer currently only shows one geometry or raster at a time, 
 so you need to type an SQL expression that resolves to 
 one geometry or one raster.  So for example if you are outputing from a table,
@@ -92,13 +98,18 @@ For raster:
  ST_AsRaster(
 		ST_Buffer(
 			ST_GeomFromText('LINESTRING(50 50,150 150,150 50)'), 10,'join=bevel'), 
-			200,200,ARRAY['8BUI', '8BUI', '8BUI'], ARRAY[118,154,118], ARRAY[0,0,0])```
+			200,200,ARRAY['8BUI', '8BUI', '8BUI'], ARRAY[118,154,118], ARRAY[0,0,0])
+```
 
-```(SELECT rast FROM ch13.pele_chunked ORDER BY rid LIMIT 1 OFFSET 4)```
+```sql
+(SELECT rast FROM ch13.pele_chunked ORDER BY rid LIMIT 1 OFFSET 4)
+```
 
 For raw:  
 --raw mode allows you to completely control the rendering process
 -- assumed to output an image
 
+```sql
 SELECT ST_AsJPEG(rast, ARRAY[3,2,1]) FROM ch13.pele limit 1;
+```
 
