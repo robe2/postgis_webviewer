@@ -92,7 +92,8 @@ ST_Buffer(ST_Point(1,1), 10);
 ```sql
  ST_Polygon(
     (SELECT ST_SetBandNoDataValue(ST_Band(rast,1),255) FROM ch13.pele_chunked WHERE rid = 1)
-    )```
+    )
+```
 
 For raster:
 ```sql
