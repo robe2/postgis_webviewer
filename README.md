@@ -3,9 +3,9 @@ postgis_webviewer
 
 Quickie (PHP and ASP.NET) web viewer for viewing PostGIS geometry and rasters
 
-This is a simple postgis query tool for rendering postgis raster and geometry outputs.  
+This is a simple PostGIS query tool for rendering PostGIS raster and geometry outputs.  
 It can only display one image at a time and is currently hard-coded to output PNG 
-using postgis raster image functions.
+using PostGIS raster image functions.
 Feel free to extend it for your needs.
 
 ##PREREQUISITES##
@@ -28,7 +28,7 @@ or
 var postgis_handler = "GetRasterVB.ashx";
 ```
 
-## INSTALLATION ## 
+## INSTALLATION ##
 1. You need PostGIS 2.0 or later built with raster support.
 2. Change the web.config to the credentials of your database. If you are using PHP then change the config.inc.php to 
 credentials of your databse
@@ -37,7 +37,7 @@ some ad-hoc queries, if your app is easily accessible on the web,
 you'll want to use 
 an account with low level permissions.  It just needs access to the function 
 postgis_viewer_image.  And that function needs to be created under an account
-that has access to the tables and all the postgis and raster functions you want the user to have access to.
+that has access to the tables and all the PostGIS and raster functions you want the user to have access to.
 
 3. run the toraster.sql function in your database to install the 
 helper stored function.  Not the owner of the function needs to have access to tables, functions etc you want the user
@@ -52,7 +52,7 @@ SELECT postgis_viewer_image('ST_Point(10,20)', 'geometry', ARRAY[100,0,0]);
 Open up:
 http://yourserver/postgis_webviewer/postgis_viewer.htm
 
-in a brower.
+in a browser.
 
 ## LIMITATIONS ##
 1. The viewer can currently only render one geometry or raster tile at a time,
